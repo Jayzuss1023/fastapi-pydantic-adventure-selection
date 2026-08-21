@@ -94,7 +94,7 @@ class StoryGenerator:
                     "node_id": child_node.id
                 })
 
-                node.options = options_list
+            node.options = options_list
         
         db.flush()
         return node
