@@ -14,7 +14,8 @@ export type Story = {
 };
 
 export type StorySchemaOptions = {
-  options: { text: string; node_id: number | null };
+  text: string;
+  node_id: number;
 };
 
 export type CompleteStoryNodeResponse = {
@@ -24,13 +25,13 @@ export type CompleteStoryNodeResponse = {
   is_winning_ending: string;
   options: [StorySchemaOptions];
 };
+export const API_BASE_URL: string = "/api";
 
 export default function StoryLoader() {
   const [story, setStory] = useState<Story | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const API_BASE_URL: string = "/api";
   const { id } = useParams();
   const navigate = useNavigate();
 
