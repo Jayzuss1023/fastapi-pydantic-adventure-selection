@@ -40,6 +40,8 @@ export default function StoryLoader() {
     return;
   }
 
+  // Activate upon loading page
+  // Listen to ID for change in story
   useEffect(() => {
     loadStory(id);
   }, [id]);

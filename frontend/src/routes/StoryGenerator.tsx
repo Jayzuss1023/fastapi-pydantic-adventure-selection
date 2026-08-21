@@ -28,6 +28,7 @@ export default function StoryGenerator() {
   useEffect(() => {
     let pollInterval: number;
 
+    // Live status update by creating a fetch request to the Job
     if (jobId && status === "processing") {
       pollInterval = setInterval(() => {
         pollJobStatus(jobId);
@@ -64,6 +65,8 @@ export default function StoryGenerator() {
     }
   };
 
+  // Included for live fetch
+  // Will push to it's story page when status returns complete
   const pollJobStatus = async (id: string) => {
     try {
       const response = await axios.get(`${API_BASE_URL}/jobs/${id}`);
